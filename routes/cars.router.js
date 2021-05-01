@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Car = require('../models/car')
-const CarController = require('../controllers/car.controller')
+const CarController = require('../controllers/carController')
 
 
 router.get('/',CarController.addCar)
