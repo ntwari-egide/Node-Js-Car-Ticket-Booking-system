@@ -17,10 +17,14 @@ const connection = mongoose.connection
 connection.on('open', ()=>{
     console.log('Connection to db is working .....');
 })
+//allowing json requests
+app.use(express.json)
+
 //routing urls
 app.use('/cars',CarRouter)
 
 //listed to server
-app.listen(9000,()=>{
-    console.log('Server started ......');
+const port = 8000
+app.listen(port,()=>{
+    console.log(`Server started,port ${port} ......`);
 })

@@ -10,6 +10,15 @@ router.get('/',async(req,res)=>{
     }
 })
 
+router.get('/:id',async(req,res)=>{
+    try {
+        const car = await Car.findById(req.params.id)
+        res.json(car)
+    } catch (err) {
+        res.send('Error : '+err)
+    }
+})
+
 router.post('/',async(req,res)=>{
     const car = new Car({
         carType: req.body.carType,
@@ -22,6 +31,18 @@ router.post('/',async(req,res)=>{
         res.json(carSaved)
     } catch (err) {
         res.send('Error: '+err)
+    }
+})
+
+
+router.patch('/:id',async(req,res)=>{
+    try {
+        const car = await Car.findById(req.params.id)
+        car.isCarFull = req.body.isCarFull
+        const updatedCar = await car.save()
+        res.json(updatedCar)
+    } catch (err) {
+        res.send('Error : '+err)
     }
 })
 
