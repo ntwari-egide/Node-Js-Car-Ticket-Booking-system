@@ -4,36 +4,13 @@ const Car = require('../models/car')
 const CarController = require('../controllers/car.controller')
 
 
-router.get('/',async(req,res)=>{
-    try {
-        const cars = await Car.find()
-        res.json(cars)
-    } catch (err) {
-        res.send('Error : '+err)
-    }
-})
+router.get('/',CarController.addCar)
 
-router.get('/:id',async(req,res)=>{
-    try {
-        const car = await Car.findById(req.params.id)
-        res.json(car)
-    } catch (err) {
-        res.send('Error : '+err)
-    }
-})
+router.get('/:id',CarController.getCarById)
 
-router.post('/',CarController.getAllCars)
+router.post('/',CarController.addCar)
 
 
-router.patch('/:id',async(req,res)=>{
-    try {
-        const car = await Car.findById(req.params.id)
-        car.isCarFull = req.body.isCarFull
-        const updatedCar = await car.save()
-        res.json(updatedCar)
-    } catch (err) {
-        res.send('Error : '+err)
-    }
-})
+router.patch('/:id',CarController.updateCarById)
 
 module.exports = router
