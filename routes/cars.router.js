@@ -1,8 +1,12 @@
 const express = require('express')
 const router = express.Router()
 
-router.get('/',(req,res)=>{
-    res.send('Get request is sent ..')
+router.get('/',async(req,res)=>{
+    try {
+        
+    } catch (err) {
+        res.send('Error : '+err)
+    }
 })
 
 module.exports = router
