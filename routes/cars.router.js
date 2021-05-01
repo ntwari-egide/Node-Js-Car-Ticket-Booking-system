@@ -1,6 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const Car = require('../models/car')
+const CarController = require('../controllers/car.controller')
+
+
 router.get('/',async(req,res)=>{
     try {
         const cars = await Car.find()
@@ -19,20 +22,7 @@ router.get('/:id',async(req,res)=>{
     }
 })
 
-router.post('/',async(req,res)=>{
-    const car = new Car({
-        carType: req.body.carType,
-        numberOfPassengers: req.body.numberOfPassengers,
-        isCarFull: req.body.isCarFull
-    })
-
-    try {
-        const carSaved = await car.save()
-        res.json(carSaved)
-    } catch (err) {
-        res.send('Error: '+err)
-    }
-})
+router.post('/',CarController.getAllCars)
 
 
 router.patch('/:id',async(req,res)=>{
