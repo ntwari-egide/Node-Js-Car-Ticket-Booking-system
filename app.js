@@ -16,3 +16,9 @@ const connection = mongoose.connection
 connection.on('open', ()=>{
     console.log('Connection to db is working .....');
 })
+
+
+//listed to server
+app.listen(9000,()=>{
+    console.log('Server started ......');
+})
