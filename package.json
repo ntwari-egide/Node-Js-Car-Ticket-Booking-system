@@ -1,0 +1,19 @@
+{
+  "name": "cart-ticket",
+  "version": "1.0.0",
+  "description": "Node Js Car Ticket Booking system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ntwari-egide/Node-Js-Car-Ticket-Booking-system.git"
+  },
+  "author": "ntwari egide",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ntwari-egide/Node-Js-Car-Ticket-Booking-system/issues"
+  },
+  "homepage": "https://github.com/ntwari-egide/Node-Js-Car-Ticket-Booking-system#readme"
+}
